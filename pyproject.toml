@@ -1,0 +1,27 @@
+[project]
+name = "personal-kb-agent"
+version = "1.0.0"
+description = "个人知识库智能问答 Agent：基于私有资料的 RAG 智能体（Agent Planner + 长期记忆 + 回答溯源）"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "C4", "SIM"]
+ignore = [
+    "E501",   # 行宽交给编辑器处理，中文注释下强约束反而难读
+    "SIM905", # 停用词表用多行字符串比 list 字面量更易维护
+]
+
+[tool.ruff.lint.per-file-ignores]
+# FastAPI 的 Depends / File 依赖必须写在函数默认参数里，B008 在本项目属误报
+"app/api/*.py" = ["B008"]

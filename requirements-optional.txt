@@ -1,0 +1,12 @@
+# ---------- 可选增强：需要哪个装哪个 ----------
+# 更强的本地向量模型（首次运行会自动下载模型权重）
+sentence-transformers>=3.0
+# 使用 Chroma 作为向量库后端（VECTOR_BACKEND=chroma）
+chromadb>=0.5
+# 备用向量库后端（预留，VECTOR_BACKEND=faiss）
+# faiss-cpu>=1.8
+# Gradio 图形界面（python -m app.ui.gradio_app）
+gradio>=4.44
+# 开发/测试
+pytest>=8.2
+pytest-asyncio>=0.23
