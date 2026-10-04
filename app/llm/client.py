@@ -202,7 +202,6 @@ class OpenAICompatLLM(BaseLLM):
         temperature: float | None = None,
         max_tokens: int | None = None,
     ) -> Iterator[str]:
-        client = self._http()
         for kind, piece in self.chat_stream_events(messages, temperature=temperature, max_tokens=max_tokens):
             if kind == "content":
                 yield piece
